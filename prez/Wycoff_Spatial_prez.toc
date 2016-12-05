@@ -1,0 +1,4 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{Simulations with Univariate Continuous Response.}{6}{0}{2}
+\beamer@sectionintoc {3}{Real Data Application: Bivariate Binary Spatiotemporal Data}{8}{0}{3}

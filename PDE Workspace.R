@@ -23,26 +23,28 @@ c2 <- 0.01
 grey_density <- 1
 red_density <- 0.39
 
-time_interval <- c(0,21)
-dist_interval <- c(0,100)# X interval is same in both directions.
+time_interval <- c(0,8)
+dist_interval_i <- c(0,24)# X interval is same in both directions.
+dist_interval_j <- c(0,16)# X interval is same in both directions.
 
 ##Solver Parameters
 delta_t <- 0.01
 delta_x <- 1
 
 ##Initialization Variables
-x_size <- (dist_interval[2] - dist_interval[1]) / delta_x#How many x (rows) do we have?
+x_size_i <- (dist_interval_i[2] - dist_interval_i[1]) / delta_x#How many x (rows) do we have?
+x_size_j <- (dist_interval_j[2] - dist_interval_j[1]) / delta_x#How many x (rows) do we have?
 t_size <- (time_interval[2] - time_interval[1]) / delta_t#How many t (cols) do we have?
-G <- array(rep(grey_density, x_size * t_size), dim=c(x_size, x_size, t_size))#Initialize a matrix of zeros for Grey Squirels
-R <- array(rep(0, x_size * t_size), dim=c(x_size, x_size, t_size))#Initialize a matrix of zeros for Red Squirels
+G <- array(0, dim=c(x_size_i, x_size_j, t_size))#Initialize a matrix of zeros for Grey Squirels
+R <- array(red_density, dim=c(x_size_i, x_size_j, t_size))#Initialize a matrix of zeros for Red Squirels
 
 ##Enforce boundary and initial conditions
-R[25,25,1] <- 1#Enforce Initial Conditions, point mass at 25
+G[floor(x_size_i / 2), floor(x_size_j / 2),1] <- grey_density#Enforce Initial Conditions, point mass at 25
 
 #Do iterations
 for (t in 1:(t_size-1)) {
-  for (i in 2:(x_size-1)) {
-    for (j in 2:(x_size-1)) {
+  for (i in 2:(x_size_i-1)) {
+    for (j in 2:(x_size_j-1)) {
       #Grey Squirrel Update
       diffusion_term <- D1 * (G[i+1,j,t] - 2 * G[i,j,t] + G[i-1,j,t] + G[i,j+1,t] - 2 * G[i,j,t] + G[i,j-1,t])
       interaction_term <- delta_t * a1 * G[i,j,t] * (1 - b1 * G[i,j,t] - c1 * R[i,j,t])
@@ -60,15 +62,4 @@ for (t in 1:(t_size-1)) {
 #Show result
 image(G[,,t_size])
 image(R[,,t_size])
-
-
-#Generate inverse gamma variates
-x <- rgamma(10000,0.2,0.5)
-y <- 1/x
-
-#MOM estimation
-alpha_hat <- 2 + mean(y)^2 / var(y)
-beta_hat <- mean(y) * (1 + mean(y)^2/var(y))
-
-print(c(alpha_hat, beta_hat))
 

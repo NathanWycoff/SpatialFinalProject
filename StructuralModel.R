@@ -76,7 +76,7 @@ for (j in 1:(t_size-1)) {
 
 S_used <- S
 
-par(mfrow=c(2,1))
+par(mfrow=c(1,2))
 image(S_used, 'main' = 'USED')
 image(S_true, main = 'TRUE')
 par(mfrow=c(1,1))

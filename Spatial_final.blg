@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Spatial_final.aux
 The style file: plain.bst
 Database file #1: final.bib
-You've used 4 entries,
+Warning--empty journal in solak2003derivative
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            526 strings with 4724 characters,
-and the built_in function-call counts, 1376 in all, are:
-= -- 141
-> -- 56
-< -- 1
-+ -- 22
-- -- 18
-* -- 94
-:= -- 231
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 21
+            599 strings with 6775 characters,
+and the built_in function-call counts, 5189 in all, are:
+= -- 513
+> -- 241
+< -- 3
++ -- 95
+- -- 80
+* -- 363
+:= -- 860
+add.period$ -- 46
+call.type$ -- 15
+change.case$ -- 82
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 52
-empty$ -- 104
-format.name$ -- 18
-if$ -- 285
+cite$ -- 16
+duplicate$ -- 201
+empty$ -- 401
+format.name$ -- 80
+if$ -- 1087
 int.to.chr$ -- 0
-int.to.str$ -- 4
-missing$ -- 4
-newline$ -- 23
-num.names$ -- 8
-pop$ -- 17
+int.to.str$ -- 15
+missing$ -- 18
+newline$ -- 78
+num.names$ -- 30
+pop$ -- 89
 preamble$ -- 1
-purify$ -- 17
+purify$ -- 70
 quote$ -- 0
-skip$ -- 42
+skip$ -- 142
 stack$ -- 0
-substring$ -- 102
-swap$ -- 13
-text.length$ -- 1
+substring$ -- 328
+swap$ -- 45
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 16
-warning$ -- 0
-while$ -- 15
-width$ -- 5
-write$ -- 45
+type$ -- 54
+warning$ -- 1
+while$ -- 51
+width$ -- 17
+write$ -- 164
+(There was 1 warning)
